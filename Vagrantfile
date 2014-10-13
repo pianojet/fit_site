@@ -20,11 +20,14 @@ source venv/bin/activate
 
 pip install -r requirements.debug.txt
 
-ln -fs /vagrant/backend/apache/vhost.servicedev.conf /etc/apache2/sites-available/servicedev.conf
-ln -fs /vagrant/frontend/apache/vhost.dev.conf /etc/apache2/sites-available/dev.conf
+ln -fs /vagrant/backend/apache/vhost.vagrant.servicedev.conf /etc/apache2/sites-available/servicedev.conf
+ln -fs /vagrant/frontend/apache/vhost.vagrant.dev.conf /etc/apache2/sites-available/dev.conf
 a2dissite 000-default
 a2ensite servicedev.conf
 a2ensite dev.conf
+
+mkdir -p /var/log/fit
+touch /var/log/fit/fit_debug.log
 
 grep -q "FIT" ~/.bashrc
 if [ $? -eq 1 ]; then
@@ -42,6 +45,8 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "trusty64"
+  config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,

@@ -9,3 +9,5 @@ distribute-*.tar.gz
 # OS files
 .DS_Store
 
+# vagrant
+.vagrant
