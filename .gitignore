@@ -11,3 +11,6 @@ distribute-*.tar.gz
 
 # vagrant
 .vagrant
+
+# django static
+media/

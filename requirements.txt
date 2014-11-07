@@ -3,12 +3,20 @@ Django==1.7.0
 
 # aux dj libraries
 django-extensions==1.4.0
-django-tastypie==0.12.0 # redundant migration upon django 1.7, remove 0002
+django-tastypie==0.12.0  # contains redundant migration in django 1.7, remove 0002  ### https://github.com/toastdriven/django-tastypie/issues/1231
+django-oauth2-provider==0.2.6  ### https://github.com/caffeinehit/django-oauth2-provider/pull/93
+shortuuid==0.4
 
 # aux py libraries
 requests==2.4.1
 python-dateutil==2.2
 python-mimeparse==0.1.4
+arrow==0.4.4
 
 # aux db libraries
 MySQL-python==1.2.5
+
+# testing
+django-factory==0.11
+factory-boy==2.4.1
+mock==1.0.1
